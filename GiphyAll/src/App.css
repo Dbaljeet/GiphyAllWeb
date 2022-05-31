@@ -11,7 +11,6 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-  text-decoration: underline #000;
 }
 
 .Content{
@@ -56,5 +55,24 @@ img{
   border: 2px solid rgba(0, 0, 0, 0.281);
   border-radius: 2px;
   margin: 10px auto;
+  text-decoration: underline rgb(55, 54, 54);
 }
 
+/*Header*/
+.Header{
+  display: flex;
+  cursor: pointer;
+}
+
+/*Footer*/
+.Footer{
+  position: fixed;
+  bottom: 0%;
+  left: 0%;
+  width: 100%;
+  display: flexbox;
+  background-color: #555555;
+}
+.Footer a img{
+  width: 23px;
+}

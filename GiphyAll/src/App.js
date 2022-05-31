@@ -5,6 +5,8 @@ import React, {useState} from 'react';
 import Search from './components/Search';
 import {Link,Route} from "wouter"
 import SearchPage from './pages/SearchPage';
+import Header from './components/Header';
+import Footer from './components/Footer';
 //cargamos useEffect y useState que son hooks
 
 function App() {
@@ -15,7 +17,8 @@ function App() {
   return (
     <div className="App">
       <section className="App-content">
-        <h1>Busqueda gifs</h1>
+        <Header></Header>
+        <h1>Busqueda de gifs</h1>
 
         <Search keyword={keyword} setKeyword={setKeyword}/>
         <Route 
@@ -38,6 +41,8 @@ function App() {
           }}
           path="/"
           />
+      
+      <Footer></Footer>
         
         
         
