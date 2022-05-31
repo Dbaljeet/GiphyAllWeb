@@ -14,6 +14,13 @@
   text-decoration: underline #000;
 }
 
+.Content{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  
+}
+
 img{
   width: 400px;
 }
@@ -38,15 +45,16 @@ img{
 }
 
 .container-Gif__Gif{
-  border: 5px solid #000;
+  border: 5px solid rgba(0, 0, 0, 0.089);
   border-radius: 10%;
+  width: 15em;
 }
 
 .container-Gif{
-  background-color: rgb(109, 106, 112);
-  padding: 20px;
-  border: 2px solid #000;
+  background-color: rgba(109, 106, 112, 0.349);
+  padding: 20px 20px;
+  border: 2px solid rgba(0, 0, 0, 0.281);
   border-radius: 2px;
-  margin: 26px 0px;
+  margin: 10px auto;
 }
 
