@@ -4,7 +4,7 @@ import React, {useState} from 'react';
 
 import Search from './components/Search';
 import {Link,Route} from "wouter"
-import ContainerList from './components/ContainerList';
+import SearchPage from './pages/SearchPage';
 //cargamos useEffect y useState que son hooks
 
 function App() {
@@ -19,7 +19,7 @@ function App() {
 
         <Search keyword={keyword} setKeyword={setKeyword}/>
         <Route 
-          component={ContainerList}
+          component={SearchPage}
           path="/search/:keyword"
           />
         <Route 
