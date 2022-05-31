@@ -1,0 +1,52 @@
+.App {
+  text-align: center;
+}
+
+.App-content {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  text-decoration: underline #000;
+}
+
+img{
+  width: 400px;
+}
+
+.container-s{
+  display: flex;
+  margin-top: 15px;
+}
+
+.container-s p{
+  position: absolute;
+  font-size: 15px;
+  margin-top: 45px;
+  margin-left: 4px;
+  text-align: center;
+  color: rgb(255, 255, 255);
+}
+
+.Busqueda-Pasada{
+  width: 120px;
+  opacity: 0.3;
+}
+
+.container-Gif__Gif{
+  border: 5px solid #000;
+  border-radius: 10%;
+}
+
+.container-Gif{
+  background-color: rgb(109, 106, 112);
+  padding: 20px;
+  border: 2px solid #000;
+  border-radius: 2px;
+  margin: 26px 0px;
+}
+
