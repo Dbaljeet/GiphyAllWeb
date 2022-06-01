@@ -18,7 +18,7 @@ export default function Search ({keyword, setKeyword}) {
     
     return (
     <form onSubmit={handleSubmit}>
-        <input placeholder="busqueda" onChange={handleChange} type="text" value={keyword}></input>
+        <input placeholder="buscar" onChange={handleChange} type="text" value={keyword}></input>
     </form>
     )
 }

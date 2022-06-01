@@ -1,5 +1,27 @@
+*{
+  font-family: 'PT Sans', sans-serif;
+}
+
 .App {
   text-align: center;
+}
+
+h1{
+  transition: all 1s;
+  font-size: 70px;
+  font-family: 'Merriweather', serif;
+  margin: 0;
+}
+
+h1:hover{
+  -webkit-box-shadow: 3px 20px 12px 4px rgba(0,0,0,0.21);
+  -moz-box-shadow: 3px 20px 12px 4px rgba(0,0,0,0.21);
+  box-shadow: 3px 20px 12px 4px rgba(0,0,0,0.21);
+}
+
+.SearchElement{
+  font-family: 'Merriweather', serif;
+  text-decoration: 5px underline #fff;
 }
 
 .App-content {
@@ -11,6 +33,20 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+input{
+  text-align: center;
+}
+
+input::placeholder{
+  color: #000;
+  text-align: center;
+  background-color: #fff;
+}
+input:focus{
+  background-color: rgb(71, 71, 71);
+  color: #fff;
 }
 
 .Content{
@@ -55,7 +91,7 @@ img{
   border: 2px solid rgba(0, 0, 0, 0.281);
   border-radius: 2px;
   margin: 10px auto;
-  text-decoration: underline rgb(55, 54, 54);
+  text-decoration: 8px underline rgba(255, 255, 255, 0.185);
 }
 
 /*Header*/
@@ -72,7 +108,27 @@ img{
   width: 100%;
   display: flexbox;
   background-color: #555555;
+  opacity: 0.7;
 }
+
+.Footer:hover{
+  opacity: 	1;
+}
+
 .Footer a img{
   width: 23px;
+}
+
+.Footer a{
+  text-decoration: none;
+  color: #fff;
+  border-right: 2px solid #000;
+
+  padding: 0px 10px;
+  font-size: 20px;
+}
+
+.Footer p{
+  margin: 0%;
+  font-size: 15px;
 }

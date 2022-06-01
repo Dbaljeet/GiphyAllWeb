@@ -11,14 +11,16 @@ import Footer from './components/Footer';
 
 function App() {
   const [keyword, setKeyword]= useState('');
-  const word = localStorage.getItem("keyword");
+  const word=(localStorage.getItem("keyword"));
+
+  
 
   //si no es con estados esto dará un warning, el keyword basicamente será para ver que quiere buscar, lo guardé con ese nombre
   return (
     <div className="App">
       <section className="App-content">
         <Header></Header>
-        <h1>Busqueda de gifs</h1>
+        <h2>Busqueda de gifs</h2>
 
         <Search keyword={keyword} setKeyword={setKeyword}/>
         <Route 
