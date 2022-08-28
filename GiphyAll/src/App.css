@@ -132,3 +132,11 @@ img{
   margin: 0%;
   font-size: 15px;
 }
+
+/*
+
+*/
+form{
+  padding: 20px;
+  display: flex;
+}

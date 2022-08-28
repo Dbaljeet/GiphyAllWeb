@@ -1,4 +1,5 @@
 import React from 'react';
+import SearchIcon from '../assets/SearchIcon.svg'
 import {useLocation} from "wouter"; //, 
 export default function Search ({keyword, setKeyword, setWord}) {
 
@@ -20,6 +21,8 @@ export default function Search ({keyword, setKeyword, setWord}) {
     return (
     <form onSubmit={handleSubmit}>
         <input placeholder="buscar" onChange={handleChange} type="text" value={keyword}></input>
+        <button scr={SearchIcon}>
+        </button>
     </form>
     )
 }
