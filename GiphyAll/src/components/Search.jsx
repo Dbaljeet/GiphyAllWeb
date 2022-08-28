@@ -1,11 +1,12 @@
 import React from 'react';
 import {useLocation} from "wouter"; //, 
-export default function Search ({keyword, setKeyword}) {
+export default function Search ({keyword, setKeyword, setWord}) {
 
     const [path, pushLocation] = useLocation();
     //para que se ve el cambio en la keyword por cada palabra
     const handleSubmit = ev =>{
         ev.preventDefault() //para que no se recargue la pag por apretar enter
+        setWord(keyword)
         localStorage.getItem("keyword") !== keyword ? (localStorage.setItem("keyword",keyword)):(console.log("pag ya visitada"))
         pushLocation(`/search/${keyword}`);
     }

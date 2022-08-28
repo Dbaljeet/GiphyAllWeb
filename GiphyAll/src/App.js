@@ -11,7 +11,7 @@ import Footer from './components/Footer';
 
 function App() {
   const [keyword, setKeyword]= useState('');
-  const word=(localStorage.getItem("keyword"));
+  const [word, setWord] = useState(localStorage.getItem("keyword"));
 
   
 
@@ -22,7 +22,7 @@ function App() {
         <Header></Header>
         <h2>Busqueda de gifs</h2>
 
-        <Search keyword={keyword} setKeyword={setKeyword}/>
+        <Search keyword={keyword} setKeyword={setKeyword} setWord={setWord} />
         <Route 
           component={SearchPage}
           path="/search/:keyword"
