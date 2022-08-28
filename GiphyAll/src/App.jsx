@@ -20,9 +20,8 @@ function App() {
     <div className="App">
       <section className="App-content">
         <Header></Header>
-        <h2>Busqueda de gifs</h2>
         <Search keyword={keyword} setKeyword={setKeyword} setWord={setWord} />
-        <Route 
+        <Route
           component={SearchPage}
           path="/search/:keyword"
           />

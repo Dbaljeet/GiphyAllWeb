@@ -8,6 +8,7 @@ const Header = () =>{
                     <h1>GiphyAll</h1>
                 </Link>
             </div>
+            <h2>Busqueda de gifs</h2>
         </>
     )
 };

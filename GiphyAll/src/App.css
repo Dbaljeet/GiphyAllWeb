@@ -53,7 +53,6 @@ input:focus{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  
 }
 
 img{
@@ -82,7 +81,7 @@ img{
 .container-Gif__Gif{
   border: 5px solid rgba(0, 0, 0, 0.089);
   border-radius: 10%;
-  width: 15em;
+  max-width: 200px;
 }
 
 .container-Gif{
@@ -136,7 +135,21 @@ img{
 /*
 
 */
+
 form{
   padding: 20px;
   display: flex;
+}
+
+button{
+  opacity: .8;
+}
+
+button:hover{
+  opacity: 1;
+}
+
+button>img{
+  cursor: pointer;
+  width: 20px;
 }
