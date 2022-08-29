@@ -1,9 +1,9 @@
 import React from 'react'
-import {ContainerGif, GeneralContainer} from './styles'
+import {ContainerGif, GeneralContainer, Title} from './styles'
 export default function Gif ({title, url}) {
     return( 
         <GeneralContainer>
-            <h4>{title}</h4>
+            <Title>{title}</Title>
             <ContainerGif alt="gifs" src={url}/>
         </GeneralContainer>
     )

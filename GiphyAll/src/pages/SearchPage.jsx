@@ -21,21 +21,37 @@ const LoadingImg = styled.div`
   }
 `;
 
+const Content = styled.div`
+  margin-top:50px;
+  @media screen and (max-width: 400px) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  @media screen and (min-width: 400px){
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, auto);
+    grid-column-gap: 40px;
+    grid-row-gap: 40px;
+  }
+`;
+
 export default function SearchPage({ params }) {
   params.keyword = decodeURIComponent(params.keyword);
   const [loading, setLoading] = useState(false);
 
   return (
     <>
-      {loading && <LoadingImg ></LoadingImg>}
+      {loading && <LoadingImg></LoadingImg>}
 
       <h2 className="SearchElement">{params.keyword}</h2>
-      <div className="Content">
+      <Content>
         <ListOfGifts
           keyword={params.keyword}
           isLoading={setLoading}
         ></ListOfGifts>
-      </div>
+      </Content>
     </>
   );
 }

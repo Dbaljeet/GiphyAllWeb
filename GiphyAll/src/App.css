@@ -46,12 +46,6 @@ input:focus{
   color: #fff;
 }
 
-.Content{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
 /*
 
 */
