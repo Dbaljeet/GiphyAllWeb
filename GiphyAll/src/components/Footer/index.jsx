@@ -1,33 +1,67 @@
 import React from "react";
 import Github from "../../assets/Github";
 import Linkedin from "../../assets/Linkedin";
-const Footer = () =>{
-    return(
-        <>
-            <div className="Footer">
 
-                <p>web realizada con motivos de estudio personal</p>
+import styled from "styled-components";
+const FooterSection = styled.footer`
+  position: fixed;
+  bottom: 0%;
+  left: 0%;
+  width: 100%;
+  display: flex-box;
+  background-color: #555555;
+  opacity: 0.7;
+  &:hover {
+    opacity: 1;
+  }
 
-                <a href="https://www.linkedin.com/in/angelo-berrios-pinto-96b317235/" target="_blank" rel="noopener noreferrer">
-                    LinkedIn
-                    <Linkedin width='25px'></Linkedin>
-                </a>
+  & > a{
+    text-decoration: none;
+    color: #fff;
+    border-right: 2px solid #000;
 
-                <a href="https://github.com/Dbaljeet" target="_blank" rel="noopener noreferrer">
-                    Cuenta personal
-                    <Github width='30px'></Github>
-                </a>
+    padding: 0px 10px;
+    font-size: 1.2rem;
+    opacity:.7;
+    &:hover{
+      opacity:1;
+    }
 
-                <a href="https://github.com/Angelobpixel" target="_blank" rel="noopener noreferrer">
-                    Cuenta estudiante
-                    <Github width='30px'></Github>
-                </a>
-                
-                
+    & > img {
+      width: 23px;
+    }
+  }
+  & > p {
+    font-size: 1.2rem;
+  }
+`;
 
-            </div>
-        </>
-    );
+const Footer = () => {
+  return (
+    <>
+      <FooterSection>
+        <p>web realizada con motivos de estudio personal</p>
+
+        <a
+          href="https://www.linkedin.com/in/angelo-berrios-pinto-96b317235/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          LinkedIn
+          <Linkedin width="25px"></Linkedin>
+        </a>
+
+        <a
+          href="https://github.com/Dbaljeet"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Github
+          <Github width="30px"></Github>
+        </a>
+      </FooterSection>
+    </>
+  );
 };
 
 export default Footer;

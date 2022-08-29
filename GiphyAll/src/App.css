@@ -39,12 +39,9 @@ input{
   text-align: center;
 }
 
-input::placeholder{
-  color: #000;
-  text-align: center;
-  background-color: #fff;
-}
 input:focus{
+  border:none;
+  outline: none;
   background-color: rgb(71, 71, 71);
   color: #fff;
 }
@@ -53,83 +50,6 @@ input:focus{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-}
-
-img{
-  width: 400px;
-}
-
-.container-s{
-  display: flex;
-  margin-top: 15px;
-}
-
-.container-s p{
-  position: absolute;
-  font-size: 15px;
-  margin-top: 45px;
-  margin-left: 4px;
-  text-align: center;
-  color: rgb(255, 255, 255);
-}
-
-.Busqueda-Pasada{
-  width: 120px;
-  opacity: 0.3;
-}
-
-.container-Gif__Gif{
-  border: 5px solid rgba(0, 0, 0, 0.089);
-  border-radius: 10%;
-  max-width: 200px;
-}
-
-.container-Gif{
-  background-color: rgba(109, 106, 112, 0.349);
-  padding: 20px 20px;
-  border: 2px solid rgba(0, 0, 0, 0.281);
-  border-radius: 2px;
-  margin: 10px auto;
-  text-decoration: 8px underline rgba(255, 255, 255, 0.185);
-}
-
-/*Header*/
-.Header{
-  display: flex;
-  cursor: pointer;
-}
-
-/*Footer*/
-.Footer{
-  position: fixed;
-  bottom: 0%;
-  left: 0%;
-  width: 100%;
-  display: flexbox;
-  background-color: #555555;
-  opacity: 0.7;
-}
-
-.Footer:hover{
-  opacity: 	1;
-}
-
-.Footer a img{
-  width: 23px;
-}
-
-.Footer a{
-  text-decoration: none;
-  color: #fff;
-  border-right: 2px solid #000;
-
-  padding: 0px 10px;
-  font-size: 20px;
-}
-
-.Footer p{
-  margin: 0%;
-  font-size: 15px;
 }
 
 /*

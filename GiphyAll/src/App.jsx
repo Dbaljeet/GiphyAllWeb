@@ -3,10 +3,11 @@ import './App.css';
 import React, {useState} from 'react';
 
 import Search from './components/Search';
-import {Link,Route} from "wouter"
+import {Route} from "wouter"
 import SearchPage from './pages/SearchPage';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import OldSearch from './components/OldSearch';
 //cargamos useEffect y useState que son hooks
 
 function App() {
@@ -29,14 +30,10 @@ function App() {
           component={()=>{
             if(word !== '' && word!== null){
             return (
-              <Link className="container-s" to={`/search/${word}`}>
-                <p>Busqueda Pasada</p>
-                <img alt="buscar_pasada" className="Busqueda-Pasada" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/LACMTA_Circle_Red_Line.svg/1200px-LACMTA_Circle_Red_Line.svg.png"/>
-                
-              </Link>
+              <OldSearch word={word}></OldSearch>
             )
             }else{
-              return <h2>No existen busquedas anteriores</h2>
+              return <p>No existen busquedas anteriores</p>
             }
           }}
           path="/"
