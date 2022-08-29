@@ -23,12 +23,13 @@ const LoadingImg = styled.div`
 
 const Content = styled.div`
   margin-top:50px;
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: 800px) {
     display: flex;
     flex-wrap: wrap;
+    gap:40px;
     justify-content: center;
   }
-  @media screen and (min-width: 400px){
+  @media screen and (min-width: 800px){
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(5, auto);
