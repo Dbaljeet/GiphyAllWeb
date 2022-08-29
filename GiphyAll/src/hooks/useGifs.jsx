@@ -1,10 +1,12 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import GetGifs from "../components/services/GetGifs";
+import GifContext from '../context/GifContext'
 const INITIAL_PAGE = 0;
 const useGifs = ({ keyword } = { keyword: null }) => {
+  const gifContext = useContext(GifContext)
+  const {gifs, setGifs} = gifContext
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(INITIAL_PAGE);
-  const [gifs, setGifs] = useState([]);
   const [loadingNextPage, setLoadingNextPage] = useState(false) 
 
   useEffect(
