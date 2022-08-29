@@ -39,6 +39,7 @@ const Go = styled(Link)`
       color:#fff;
       font-size: 1.5rem;
       transform: translate3d(-50%, 10px, 0);
+      margin-top:50%;
     }
     @media screen and (min-width: 450px){
       font-size: 1rem;

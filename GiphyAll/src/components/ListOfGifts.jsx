@@ -1,28 +1,19 @@
-import React, { useEffect, useState } from "react";
-import GetGifs from "./services/GetGifs";
+import React from "react";
 import Gif from "./Gif/Gif";
+import useGifs from "../hooks/useGifs";
 import styled from "styled-components";
 const MSG = styled.div`
-  position:absolute;
-  left:0;
-  right:0;
-`
+  position: absolute;
+  left: 0;
+  right: 0;
+`;
 
-export default function ListOfGifts({ keyword, isLoading }) {
-  const [gifs, setGifts] = useState([]); //array vacio por defecto
-  useEffect(
-    function () {
-      isLoading(true);
-      GetGifs({ keyword }).then((gifs) => {
-        isLoading(false);
-        setGifts(gifs);
-      });
-    },
-    [keyword]
+export default function ListOfGifts({ gifs }) {
+  return gifs.length > 0 ? (
+    gifs.map(({ id, title, url }) => (
+      <Gif key={id} title={title ? title : "Gif sin título"} url={url} />
+    ))
+  ) : (
+    <MSG>"No se han encontrado resultados"</MSG>
   );
-  return gifs.length > 0
-    ? gifs.map(({ id, title, url }) => (
-        <Gif key={id} title={title ? title : "Gif sin título"} url={url} />
-      ))
-    : <MSG>"No se han encontrado resultados"</MSG>;
 }

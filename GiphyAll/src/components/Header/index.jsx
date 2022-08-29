@@ -5,15 +5,25 @@ const Head = styled.header`
   display: flex;
   cursor: pointer;
 `
+const Titulo = styled.h1`
+    margin:20px;
+`
+const PTitulo = styled.h2`
+    margin-top:50px;
+    @media screen and (max-height: 600px ){
+        margin-top:0;
+    }
+`
+
 const Header = () =>{
     return(
         <>
             <Head>
                 <Link to="/">
-                    <h1>GiphyAll</h1>
+                    <Titulo>GiphyAll</Titulo>
                 </Link>
             </Head>
-            <h2>Busqueda de gifs</h2>
+            <PTitulo>Busqueda de gifs</PTitulo>
         </>
     )
 };

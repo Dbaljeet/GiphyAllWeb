@@ -1,5 +1,6 @@
 import { useState } from "react";
 import ListOfGifts from "../components/ListOfGifts";
+import useGifs from "../hooks/useGifs";
 
 import styled from "styled-components";
 const LoadingImg = styled.div`
@@ -39,18 +40,15 @@ const Content = styled.div`
 `;
 
 export default function SearchPage({ params }) {
-  params.keyword = decodeURIComponent(params.keyword);
-  const [loading, setLoading] = useState(false);
-
+  const keyword = decodeURIComponent(params.keyword);
+  const { loading, gifs } = useGifs({ keyword })
   return (
     <>
       {loading && <LoadingImg></LoadingImg>}
-
       <h2 className="SearchElement">{params.keyword}</h2>
       <Content>
         <ListOfGifts
-          keyword={params.keyword}
-          isLoading={setLoading}
+          gifs={gifs}
         ></ListOfGifts>
       </Content>
     </>

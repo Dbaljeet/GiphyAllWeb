@@ -35,6 +35,12 @@ h1:hover{
   color: white;
 }
 
+@media screen and (max-width:500px){
+  .App-content{
+    justify-content: flex-start
+  }
+}
+
 input{
   text-align: center;
 }
