@@ -60,7 +60,7 @@ export default function SearchPage({ params }) {
   return (
     <>
       {loading && <LoadingImg></LoadingImg>}
-      <h2 className="SearchElement">{params.keyword}</h2>
+      <h2 className="SearchElement">{keyword}</h2>
       <Content>
         <ListOfGifts
           gifs={gifs}
