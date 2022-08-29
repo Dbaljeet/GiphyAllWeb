@@ -5,30 +5,46 @@ const Go = styled(Link)`
   opacity: 0.6;
   cursor: pointer;
   display: flex;
+  flex-direction:row;
   transition:opacity 2s;
+  
   &:hover {
     opacity:1;
     & > svg {
-      -webkit-transform: scale(1.25);
-      -moz-transform: scale(1.25);
-      -ms-transform: scale(1.25);
-      -o-transform: scale(1.25);
-      transform: scale(1.25);
+      -webkit-transform: scale(1.1);
+      -moz-transform: scale(1.1);
+      -ms-transform: scale(1.1);
+      -o-transform: scale(1.1);
+      transform: scale(1.1);
     }
   }
   & > svg {
-    width: 17rem;
     color: #fff;
-    transition: all 2s;
+    transition: transform 2s;
+    @media screen and (max-width: 450px){
+      position:none;
+    }
+    @media screen and (min-width: 450px){
+      width: 17rem;
+    }
   }
   & > label {
     cursor: pointer;
     position: absolute;
-    font-size: 1rem;
-    transform: translate3d(80px, 120px, 0);
-    color: rgb(2, 2, 2);
     font-family: "Merriweather", serif;
     font-weight: bold;
+    @media screen and (max-width: 450px){
+      border:1px solid #fff;
+      padding:10px;
+      color:#fff;
+      font-size: 1.5rem;
+      transform: translate3d(-50%, 10px, 0);
+    }
+    @media screen and (min-width: 450px){
+      font-size: 1rem;
+      color: rgb(2, 2, 2);
+      transform: translate3d(80px, 120px, 0);
+    }
   }
 `;
 //svg <!-- License: CC Attribution. Made by epicons: https://epicons.co/ -->
