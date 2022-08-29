@@ -8,7 +8,6 @@ export default function Search ({keyword, setKeyword, setWord}) {
     const handleSubmit = ev =>{
         ev.preventDefault() //para que no se recargue la pag por apretar enter
         setWord(keyword)
-        console.log(keyword)
         localStorage.getItem("keyword") !== keyword ? (localStorage.setItem("keyword",keyword)):(console.log("pag ya visitada"))
         pushLocation(`/search/${keyword}`);
     }

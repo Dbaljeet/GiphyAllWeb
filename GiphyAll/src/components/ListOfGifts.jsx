@@ -8,7 +8,6 @@ export default function ListOfGifts({ keyword, isLoading }) {
     function () {
       isLoading(true);
       GetGifs({ keyword }).then((gifs) => {
-        console.log(gifs.length);
         isLoading(false);
         setGifts(gifs);
       });
@@ -16,6 +15,8 @@ export default function ListOfGifts({ keyword, isLoading }) {
     [keyword]
   );
   return gifs.length > 0
-    ? gifs.map(({ id, title, url }) => <Gif key={id} title={title} url={url} />)
+    ? gifs.map(({ id, title, url }) => (
+        <Gif key={id} title={title ? title : "Gif sin título"} url={url} />
+      ))
     : "No se han encontrado resultados";
 }
