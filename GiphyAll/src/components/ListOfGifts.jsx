@@ -1,6 +1,5 @@
 import React from "react";
 import Gif from "./Gif/Gif";
-import useGifs from "../hooks/useGifs";
 import styled from "styled-components";
 const MSG = styled.div`
   position: absolute;
@@ -11,7 +10,7 @@ const MSG = styled.div`
 export default function ListOfGifts({ gifs }) {
   return gifs.length > 0 ? (
     gifs.map(({ id, title, url }) => (
-      <Gif key={id} title={title ? title : "Gif sin título"} url={url} />
+      <Gif key={id+url} title={title ? title : "Gif sin título"} url={url} />
     ))
   ) : (
     <MSG>"No se han encontrado resultados"</MSG>

@@ -22,35 +22,24 @@ export const GeneralContainer = styled.figure`
   border-radius: 20px;
   text-decoration: 2px underline #cfcfcf;
   min-width: 300px;
-
+  max-width:370px;
+  width: 100%;
   @media screen and (max-width: 800px) {
     width: 90%;
   }
-
   :nth-child(1) {
-    grid-area: 1 / 1 / 2 / 6;
-    width: 60%;
+    max-width:100%;
     margin: auto;
-    @media screen and (max-width: 800px) {
+    @media screen and (max-width: 550px) {
       width: 90%;
     }
-  }
-  :nth-child(2) {
-    grid-area: 2 / 2 / 3 / 3;
-  }
-  :nth-child(3) {
-    grid-area: 2 / 3 / 3 / 4;
-  }
-  :nth-child(4) {
-    grid-area: 2 / 4 / 3 / 5;
-  }
-  :nth-child(5) {
-    grid-area: 3 / 2 / 4 / 3;
-  }
-  :nth-child(6) {
-    grid-area: 3 / 3 / 4 / 4;
-  }
-  :nth-child(7) {
-    grid-area: 3 / 4 / 4 / 5;
+    @media screen and (min-width: 550px) {
+      width: 60%;
+      grid-area: 1 / 1 / 2 / 4;
+    }
+    @media screen and (min-width: 1200px) {
+      width: 80%;
+      grid-area: 1 / 1 / 2 / 4;
+    }
   }
 `;
