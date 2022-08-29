@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ListOfGifts from "../components/ListOfGifts";
 import useGifs from "../hooks/useGifs";
+import Arrow from "../assets/Arrow";
 
 import styled from "styled-components";
 const LoadingImg = styled.div`
@@ -23,50 +24,82 @@ const LoadingImg = styled.div`
 `;
 
 const Content = styled.div`
-  margin-top:50px;
+  margin-top: 50px;
   @media screen and (max-width: 800px) {
     display: flex;
     flex-wrap: wrap;
-    gap:40px;
+    gap: 40px;
     justify-content: center;
   }
-  @media screen and (min-width: 800px){
+  @media screen and (min-width: 800px) {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: repeat(3, 400px);
     grid-column-gap: 40px;
     grid-row-gap: 40px;
-    grid-auto-flow:row;
-    justify-items:center;
+    grid-auto-flow: row;
+    justify-items: center;
   }
 `;
 const Button = styled.button`
   cursor: pointer;
-  padding:20px;
-  margin-top:20px;
-  margin-bottom:80px;
-  background-color:#707070;
-  color:#e4d6d6;
-`
+  padding: 20px;
+  margin-top: 20px;
+  margin-bottom: 80px;
+  background-color: #707070;
+  color: #e4d6d6;
+`;
 
+const Up = styled.button`
+  cursor: pointer;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  padding: 20px;
+  margin-top: 20px;
+  margin-bottom: 80px;
+  background-color: #282626;
+  color: #e4d6d6;
+  display: ${(props) => (props.visible ? "block" : "none")};
+`;
 export default function SearchPage({ params }) {
   const keyword = decodeURIComponent(params.keyword);
-  const { loading, gifs , setPage } = useGifs({ keyword })
+  const { loading, gifs, setPage } = useGifs({ keyword });
+  const [visible, setVisible] = useState(false);
 
-  const handlePage = () =>{
-    setPage(prevPage => prevPage + 1)
-  }
+  const handlePage = () => {
+    setPage((prevPage) => prevPage + 1);
+  };
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
+  const toggleVisible = () => {
+    const scrolled = document.documentElement.scrollTop;
+    scrolled > 300 ? setVisible(true) : setVisible(false);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", toggleVisible);
+    return () => {
+      window.removeEventListener("scroll", toggleVisible);
+    };
+  }, []);
   return (
     <>
       {loading && <LoadingImg></LoadingImg>}
       <h2 className="SearchElement">{keyword}</h2>
       <Content>
-        <ListOfGifts
-          gifs={gifs}
-        ></ListOfGifts>
+        <ListOfGifts gifs={gifs}></ListOfGifts>
       </Content>
       <Button onClick={handlePage}>Ver más</Button>
+      <Up onClick={scrollToTop} visible={visible}>
+        <Arrow/>
+      </Up>
     </>
   );
 }
