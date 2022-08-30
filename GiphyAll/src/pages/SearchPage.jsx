@@ -33,7 +33,7 @@ const Content = styled.div`
   }
   @media screen and (min-width: 800px) {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(auto-fill, minmax(300px,1fr));
     grid-template-rows: repeat(3, 400px);
     grid-column-gap: 40px;
     grid-row-gap: 40px;
@@ -64,7 +64,7 @@ const Up = styled.button`
 `;
 export default function SearchPage({ params }) {
   const keyword = decodeURIComponent(params.keyword);
-  const { loading, gifs, setPage } = useGifs({ keyword });
+  const { loading, gifs, setPage, noData } = useGifs({ keyword });
   const [visible, setVisible] = useState(false);
 
   const handlePage = () => {
@@ -96,7 +96,7 @@ export default function SearchPage({ params }) {
       <Content>
         <ListOfGifts gifs={gifs}></ListOfGifts>
       </Content>
-      <Button onClick={handlePage}>Ver más</Button>
+      {noData? (<p>no data</p>):(<Button onClick={handlePage}>Ver más</Button>)}
       <Up onClick={scrollToTop} visible={visible}>
         <Arrow/>
       </Up>

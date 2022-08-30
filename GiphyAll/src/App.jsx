@@ -22,7 +22,9 @@ function App() {
         <Header></Header>
         <Search keyword={keyword} setKeyword={setKeyword} setWord={setWord} />
         <GifContextProvider>
+          
         <Route component={SearchPage} path="/search/:keyword" />
+
           <Route
             component={() => {
               if (word !== "" && word !== null) {
@@ -33,6 +35,7 @@ function App() {
             }}
             path="/"
           />
+
         </GifContextProvider>
         <Footer></Footer>
       </section>

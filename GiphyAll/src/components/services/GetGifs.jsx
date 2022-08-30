@@ -13,12 +13,6 @@ export default function GetGifs({ keyword, page = 0 }) {
         const { url } = image.images.downsized_medium;
         return { title, id, url };
       });
-      if (gifs.length == 0) {
-        gifs = [{
-          id: "sin-id",
-          title: "No se encontraron resultados"
-        }];
-      }
       return gifs;
     });
 }
