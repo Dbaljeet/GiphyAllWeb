@@ -15,7 +15,6 @@ const useGifs = ({ keyword } = { keyword: null }) => {
       setLoading(true);
       GetGifs({ keyword }).then((gifs) => {
         (gifs.length > 0)? setNodata( false ) : setNodata( true )
-        console.log(gifs.length)
         setGifs(gifs);
         setLoading(false);
       });
@@ -37,7 +36,8 @@ const useGifs = ({ keyword } = { keyword: null }) => {
     page,
     gifs,
     noData,
-    setPage
+    setPage,
+    loadingNextPage
   };
 };
 export default useGifs;

@@ -64,7 +64,7 @@ const Up = styled.button`
 `;
 export default function SearchPage({ params }) {
   const keyword = decodeURIComponent(params.keyword);
-  const { loading, gifs, setPage, noData } = useGifs({ keyword });
+  const { loading, gifs, setPage, noData, loadingNextPage } = useGifs({ keyword });
   const [visible, setVisible] = useState(false);
 
   const handlePage = () => {
@@ -93,10 +93,15 @@ export default function SearchPage({ params }) {
     <>
       {loading && <LoadingImg></LoadingImg>}
       <h2 className="SearchElement">{keyword}</h2>
+
       <Content>
         <ListOfGifts gifs={gifs}></ListOfGifts>
       </Content>
+
+      {loadingNextPage && <LoadingImg></LoadingImg>}
+
       {noData? (<p>no data</p>):(<Button onClick={handlePage}>Ver más</Button>)}
+      
       <Up onClick={scrollToTop} visible={visible}>
         <Arrow/>
       </Up>
