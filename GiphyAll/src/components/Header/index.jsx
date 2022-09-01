@@ -23,7 +23,7 @@ const Header = () =>{
                     <Titulo>GiphyAll</Titulo>
                 </Link>
             </Head>
-            <PTitulo>Busqueda de gifs</PTitulo>
+            <PTitulo>Búsqueda de gifs</PTitulo>
         </>
     )
 };

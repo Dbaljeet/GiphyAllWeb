@@ -30,7 +30,7 @@ function App() {
               if (word !== "" && word !== null) {
                 return <OldSearch word={word}></OldSearch>;
               } else {
-                return <p>No existen busquedas anteriores</p>;
+                return <p>No existen búsquedas anteriores</p>;
               }
             }}
             path="/"
