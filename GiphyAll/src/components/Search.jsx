@@ -13,11 +13,13 @@ export default function Search({ refLast, keyword, setKeyword, setWord }) {
 
     pushLocation(`/search/${keyword}`)
 
-    window.scrollTo({
-      top: refLast.current.offsetTop + refLast.current.offsetHeight,
-      left: 0,
-      behavior: 'smooth',
-    })
+    setTimeout(function () {
+      window.scrollTo({
+        top: refLast.current.offsetTop + refLast.current.offsetHeight,
+        left: 0,
+        behavior: 'smooth',
+      })
+    }, 500)
   }
 
   const handleChange = (evt) => {
