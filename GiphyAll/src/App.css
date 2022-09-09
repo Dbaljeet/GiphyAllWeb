@@ -6,6 +6,10 @@
   text-align: center;
 }
 
+html{
+  scroll-behavior: smooth;
+}
+
 h1{
   transition: all 1s;
   font-size: 70px;
@@ -25,7 +29,7 @@ h1:hover{
 }
 
 .App-content {
-  background-color: #282c34;
+  background-image: linear-gradient(to right top, #4382e0, #6979ec, #9469ef, #c14fe8, #eb12d5);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -48,8 +52,7 @@ input{
 input:focus{
   border:none;
   outline: none;
-  background-color: rgb(71, 71, 71);
-  color: #fff;
+  background-color: rgb(172, 172, 172);
 }
 
 /*

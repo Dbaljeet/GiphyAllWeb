@@ -1,45 +1,44 @@
 //import logo from './logo.svg';
-import "./App.css";
-import React, { useState } from "react";
+import './App.css'
+import React, { useState, useRef } from 'react'
 
-import Search from "./components/Search";
-import { Route } from "wouter";
-import SearchPage from "./pages/SearchPage";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import OldSearch from "./components/OldSearch";
-import { GifContextProvider } from "./context/GifContext";
+import Search from './components/Search'
+import { Route } from 'wouter'
+import SearchPage from './pages/SearchPage'
+import Header from './components/Header'
+import Footer from './components/Footer'
+import OldSearch from './components/OldSearch'
+import { GifContextProvider } from './context/GifContext'
+
 //cargamos useEffect y useState que son hooks
 
 function App() {
-  const [keyword, setKeyword] = useState("");
-  const [word, setWord] = useState(localStorage.getItem("keyword"));
-
+  const [keyword, setKeyword] = useState('')
+  const [word, setWord] = useState(localStorage.getItem('keyword'))
+  const refLast = useRef(null)
   //si no es con estados esto dará un warning, el keyword basicamente será para ver que quiere buscar, lo guardé con ese nombre
   return (
     <div className="App">
       <section className="App-content">
         <Header></Header>
-        <Search keyword={keyword} setKeyword={setKeyword} setWord={setWord} />
+        <Search
+          refLast={refLast}
+          keyword={keyword}
+          setKeyword={setKeyword}
+          setWord={setWord}
+        />
+        {word !== '' && word !== null ? (
+          <OldSearch word={word}></OldSearch>
+        ) : (
+          <p>No existen búsquedas anteriores</p>
+        )}
+        <div ref={refLast}></div>
         <GifContextProvider>
-          
-        <Route component={SearchPage} path="/search/:keyword" />
-
-          <Route
-            component={() => {
-              if (word !== "" && word !== null) {
-                return <OldSearch word={word}></OldSearch>;
-              } else {
-                return <p>No existen búsquedas anteriores</p>;
-              }
-            }}
-            path="/"
-          />
-
+          <Route component={SearchPage} path="/search/:keyword" />
         </GifContextProvider>
         <Footer></Footer>
       </section>
     </div>
-  );
+  )
 }
-export default App;
+export default App

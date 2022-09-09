@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
-import ListOfGifts from "../components/ListOfGifts";
-import useGifs from "../hooks/useGifs";
-import Arrow from "../assets/Arrow";
+import { useEffect, useState } from 'react'
+import ListOfGifts from '../components/ListOfGifts'
+import useGifs from '../hooks/useGifs'
+import Arrow from '../assets/Arrow'
 
-import styled from "styled-components";
+import styled from 'styled-components'
 const LoadingImg = styled.div`
   margin: 20px;
   border: 4px solid rgba(0, 0, 0, 0.1);
@@ -21,34 +21,35 @@ const LoadingImg = styled.div`
       transform: rotate(360deg);
     }
   }
-`;
+`
 
 const Content = styled.div`
   margin-top: 50px;
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 1200px) {
     display: flex;
     flex-wrap: wrap;
     gap: 40px;
     justify-content: center;
   }
-  @media screen and (min-width: 800px) {
+  @media screen and (min-width: 1200px) {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px,1fr));
-    grid-template-rows: repeat(3, 400px);
-    grid-column-gap: 40px;
-    grid-row-gap: 40px;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    grid-template-rows: 400px;
+    gap: 40px;
     grid-auto-flow: row;
     justify-items: center;
   }
-`;
+`
 const Button = styled.button`
   cursor: pointer;
+  border-radius: 4px;
+  border: none;
   padding: 20px;
   margin-top: 20px;
   margin-bottom: 80px;
-  background-color: #707070;
-  color: #e4d6d6;
-`;
+  background-color: #ff0081;
+  color: #ece6e6;
+`
 
 const Up = styled.button`
   cursor: pointer;
@@ -58,37 +59,41 @@ const Up = styled.button`
   padding: 20px;
   margin-top: 20px;
   margin-bottom: 80px;
-  background-color: #282626;
+  border-radius: 4px;
+  border: none;
+  background-color: #ff0081;
   color: #e4d6d6;
-  display: ${(props) => (props.visible ? "block" : "none")};
-`;
+  display: ${(props) => (props.visible ? 'block' : 'none')};
+`
 export default function SearchPage({ params }) {
-  const keyword = decodeURIComponent(params.keyword);
-  const { loading, gifs, setPage, noData, loadingNextPage } = useGifs({ keyword });
-  const [visible, setVisible] = useState(false);
+  const keyword = decodeURIComponent(params.keyword)
+  const { loading, gifs, setPage, noData, loadingNextPage } = useGifs({
+    keyword,
+  })
+  const [visible, setVisible] = useState(false)
 
   const handlePage = () => {
-    setPage((prevPage) => prevPage + 1);
-  };
+    setPage((prevPage) => prevPage + 1)
+  }
 
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth",
-    });
-  };
+      behavior: 'smooth',
+    })
+  }
 
   const toggleVisible = () => {
-    const scrolled = document.documentElement.scrollTop;
-    scrolled > 300 ? setVisible(true) : setVisible(false);
-  };
+    const scrolled = document.documentElement.scrollTop
+    scrolled > 300 ? setVisible(true) : setVisible(false)
+  }
 
   useEffect(() => {
-    window.addEventListener("scroll", toggleVisible);
+    window.addEventListener('scroll', toggleVisible)
     return () => {
-      window.removeEventListener("scroll", toggleVisible);
-    };
-  }, []);
+      window.removeEventListener('scroll', toggleVisible)
+    }
+  }, [])
   return (
     <>
       {loading && <LoadingImg></LoadingImg>}
@@ -100,11 +105,11 @@ export default function SearchPage({ params }) {
 
       {loadingNextPage && <LoadingImg></LoadingImg>}
 
-      {noData? (<p>no data</p>):(<Button onClick={handlePage}>Ver más</Button>)}
-      
+      {noData ? <p>no data</p> : <Button onClick={handlePage}>Ver más</Button>}
+
       <Up onClick={scrollToTop} visible={visible}>
-        <Arrow/>
+        <Arrow />
       </Up>
     </>
-  );
+  )
 }
