@@ -9,9 +9,9 @@ export default function GetGifs({ keyword, page = 0 }) {
     .then((response) => {
       const { data } = response
       let gifs = data.map((image) => {
-        const { title, id } = image //no es necesario pasar {images} pq en este caso usaremos solo una resolución
+        const { title, id, import_datetime, rating } = image //no es necesario pasar {images} pq en este caso usaremos solo una resolución
         const { url } = image.images.downsized_medium
-        return { title, id, url }
+        return { title, id, url, import_datetime, rating }
       })
       return gifs
     })

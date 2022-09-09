@@ -11,7 +11,36 @@ export const ContainerGif = styled.img`
   min-width: 200px;
   max-height: 200px;
 `
+export const Info = styled.p`
+  text-align: center;
+  font-size: 3rem;
+  color: #fff;
+  display: box;
+`
+
+export const ContentModal = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+
+export const Go = styled.a`
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 4px;
+  border: none;
+  padding: 20px;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 80px;
+  background-color: #ff0081;
+  color: #ece6e6;
+  text-align: center;
+  font-size: 1.2rem;
+  width: 150px;
+`
+
 export const GeneralContainer = styled.figure`
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
