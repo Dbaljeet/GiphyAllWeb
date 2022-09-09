@@ -23,7 +23,6 @@ const useGifs = ({ keyword } = { keyword: null }) => {
   )
 
   useEffect(() => {
-    console.log(gifs)
     if (page == INITIAL_PAGE) return
     setLoadingNextPage(true)
     GetGifs({ keyword, page }).then((NextGifs) => {
