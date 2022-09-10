@@ -3,7 +3,7 @@ import './App.css'
 import React, { useState, useRef } from 'react'
 
 import Search from './components/Search'
-import { Route } from 'wouter'
+import { Route, Switch } from 'wouter'
 import SearchPage from './pages/SearchPage'
 import Header from './components/Header'
 import Footer from './components/Footer'
@@ -34,11 +34,13 @@ function App() {
           <p>No existen búsquedas anteriores</p>
         )}
         <div ref={refLast}></div>
-
-        <GifContextProvider>
-          <Route component={SearchPage} path="/search/:keyword" />
-          <Route component={GifPage} path="/Gif/:id" />
-        </GifContextProvider>
+        <Switch>
+          <GifContextProvider>
+            <Route component={SearchPage} path="/search/:keyword" />
+            <Route component={GifPage} path="/Gif/:id" />
+            <Route>404, not found :(</Route>
+          </GifContextProvider>
+        </Switch>
         <Footer></Footer>
       </section>
     </div>
