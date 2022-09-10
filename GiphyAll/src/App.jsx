@@ -7,7 +7,7 @@ import Footer from './components/Footer'
 import Principal from './components/Principal'
 import { GifContextProvider } from './context/GifContext'
 import GifPage from './pages/GifPage'
-
+import Error from './pages/404'
 function App() {
   //si no es con estados esto dará un warning, el keyword basicamente será para ver que quiere buscar, lo guardé con ese nombre
   return (
@@ -18,7 +18,7 @@ function App() {
           <GifContextProvider>
             <Route component={SearchPage} path="/search/:keyword" />
             <Route component={GifPage} path="/Gif/:id" />
-            <Route component={<h2>404, not found :(</h2>} path="/404" />
+            <Route component={Error} path="/:some" />
           </GifContextProvider>
         </Switch>
         <Footer></Footer>
