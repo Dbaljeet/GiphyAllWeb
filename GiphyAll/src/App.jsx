@@ -9,6 +9,7 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import OldSearch from './components/OldSearch'
 import { GifContextProvider } from './context/GifContext'
+import GifPage from './pages/GifPage'
 
 //cargamos useEffect y useState que son hooks
 
@@ -33,8 +34,10 @@ function App() {
           <p>No existen búsquedas anteriores</p>
         )}
         <div ref={refLast}></div>
+
         <GifContextProvider>
           <Route component={SearchPage} path="/search/:keyword" />
+          <Route component={GifPage} path="Gif/:id" />
         </GifContextProvider>
         <Footer></Footer>
       </section>

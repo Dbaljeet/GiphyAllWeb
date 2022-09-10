@@ -26,7 +26,7 @@ const useGifs = ({ keyword } = { keyword: null }) => {
     if (page == INITIAL_PAGE) return
     setLoadingNextPage(true)
     GetGifs({ keyword, page }).then((NextGifs) => {
-      if (NextGifs.length == 0) setNodata(true)
+      NextGifs.length == 0 ? setNodata(true) : setNodata(false)
       setGifs((prevGifs) => prevGifs.concat(NextGifs))
       setLoadingNextPage(false)
     })

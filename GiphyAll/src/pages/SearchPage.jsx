@@ -35,6 +35,13 @@ export default function SearchPage({ params }) {
     }
   }, [])
 
+  useEffect(() => {
+    setVisibleModalMoreGif(true)
+  }, [keyword])
+
+  console.log(noData, 'no data?')
+  console.log(visibleModalMoreGif)
+
   const onClose = () => {
     setVisibleModalMoreGif(false)
   }
