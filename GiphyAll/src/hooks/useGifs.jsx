@@ -1,10 +1,11 @@
-import { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect, useState, useCallback } from 'react'
 import GetGifs from '../components/services/GetGifs'
 import GifContext from '../context/GifContext'
+import GetGif from '../components/services/GetGif'
 const INITIAL_PAGE = 0
 const useGifs = ({ keyword } = { keyword: null }) => {
   const gifContext = useContext(GifContext)
-  const { gifs, setGifs } = gifContext
+  const { gifs, setGifs, setGif } = gifContext
   const [loading, setLoading] = useState(false)
   const [page, setPage] = useState(INITIAL_PAGE)
   const [loadingNextPage, setLoadingNextPage] = useState(false)
@@ -31,6 +32,11 @@ const useGifs = ({ keyword } = { keyword: null }) => {
       setLoadingNextPage(false)
     })
   }, [keyword, page])
+
+  const getGif = useCallback(({ id }) => {
+    GetGif({ id }).then((data) => setGif(data))
+  }, [])
+
   return {
     loading,
     page,
@@ -38,6 +44,7 @@ const useGifs = ({ keyword } = { keyword: null }) => {
     noData,
     setPage,
     loadingNextPage,
+    getGif,
   }
 }
 export default useGifs

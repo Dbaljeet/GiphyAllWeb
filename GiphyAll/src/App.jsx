@@ -37,7 +37,7 @@ function App() {
 
         <GifContextProvider>
           <Route component={SearchPage} path="/search/:keyword" />
-          <Route component={GifPage} path="Gif/:id" />
+          <Route component={GifPage} path="/Gif/:id" />
         </GifContextProvider>
         <Footer></Footer>
       </section>
