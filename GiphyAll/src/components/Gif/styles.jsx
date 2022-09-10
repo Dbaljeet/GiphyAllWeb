@@ -21,6 +21,7 @@ export const Info = styled.p`
 export const ContentModal = styled.div`
   display: flex;
   flex-direction: column;
+  gap: 10px;
 `
 
 export const Go = styled.a`
@@ -30,13 +31,16 @@ export const Go = styled.a`
   border: none;
   padding: 20px;
   margin: auto;
-  margin-top: 20px;
-  margin-bottom: 80px;
+  margin-top: 5px;
   background-color: #ff0081;
   color: #ece6e6;
   text-align: center;
   font-size: 1.2rem;
   width: 150px;
+
+  :hover {
+    background-color: #c20865;
+  }
 `
 
 export const GeneralContainer = styled.figure`
