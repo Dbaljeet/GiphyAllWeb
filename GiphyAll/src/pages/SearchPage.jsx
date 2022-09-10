@@ -39,9 +39,6 @@ export default function SearchPage({ params }) {
     setVisibleModalMoreGif(true)
   }, [keyword])
 
-  console.log(noData, 'no data?')
-  console.log(visibleModalMoreGif)
-
   const onClose = () => {
     setVisibleModalMoreGif(false)
   }
