@@ -2,27 +2,21 @@ import ReactDOM from 'react-dom'
 import styled from 'styled-components'
 
 const ContentModal = styled.div`
-  position: fixed;
+  overflow-y: auto;
+  position: absolute;
   z-index: 101;
-  padding: 10px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-
   backdrop-filter: blur(2px);
+  width: 90%;
+  height: 80vh;
   @media screen and (min-width: 900px) {
-    bottom: 5%;
     top: 10%;
-    left: 30%;
-    right: 30%;
+    left: 0%;
     padding-left: 7px;
   }
   @media screen and (max-width: 900px) {
-    top: 30%;
-    bottom: 0%;
+    top: 10%;
     left: 0%;
-    right: 0%;
+    bottom: 0;
   }
 
   background-image: linear-gradient(
@@ -94,14 +88,25 @@ const Background = styled.div`
   }
 `
 
+const Container = styled.div`
+  position: fixed;
+  width: 100%;
+  z-index: 101;
+  left: 0;
+  top: 10%;
+  bottom: 0;
+`
+
 export const ModalGif = ({ children, onClose }) => {
   return (
     <>
       <Background></Background>
-      <ContentModal>
-        <CloseModal onClick={onClose}></CloseModal>
-        <>{children}</>
-      </ContentModal>
+      <Container>
+        <ContentModal>
+          <CloseModal onClick={onClose}></CloseModal>
+          <>{children}</>
+        </ContentModal>
+      </Container>
     </>
   )
 }

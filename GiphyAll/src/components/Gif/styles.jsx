@@ -22,6 +22,8 @@ export const ContentModal = styled.div`
   display: flex;
   flex-direction: column;
   gap: 10px;
+  width: 100%;
+  height: 100%;
 `
 
 export const Go = styled.a`
@@ -31,7 +33,6 @@ export const Go = styled.a`
   border: none;
   padding: 20px;
   margin: auto;
-  margin-top: 5px;
   background-color: #ff0081;
   color: #ece6e6;
   text-align: center;

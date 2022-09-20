@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState, useCallback } from 'react'
-import GetGifs from '../components/services/GetGifs'
+import GetGifs from '../services/GetGifs'
 import GifContext from '../context/GifContext'
-import GetGif from '../components/services/GetGif'
+import GetGif from '../services/GetGif'
 const INITIAL_PAGE = 0
 const useGifs = ({ keyword } = { keyword: null }) => {
   const gifContext = useContext(GifContext)

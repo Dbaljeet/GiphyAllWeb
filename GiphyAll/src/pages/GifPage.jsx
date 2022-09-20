@@ -6,6 +6,10 @@ import styled from 'styled-components'
 const IMG = styled.img`
   object-fit: cover;
   width: 300px;
+  border-radius: 6px;
+  @media screen and (min-width: 600px) {
+    width: 70%;
+  }
 `
 const ContentImg = styled.div`
   text-align: center;

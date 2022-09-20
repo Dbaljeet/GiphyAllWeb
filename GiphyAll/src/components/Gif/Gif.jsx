@@ -10,6 +10,7 @@ import {
 } from './styles'
 import { ModalPortalGif } from '../modal/GifModal'
 import { Link } from 'wouter'
+import { useEffect } from 'react'
 export default function Gif({ props }) {
   const { title, import_datetime, rating, id } = props
   const image = props.images.downsized_medium.url
@@ -18,7 +19,13 @@ export default function Gif({ props }) {
   const { setGif } = gifContext
   const HandleClick = () => {
     setGif(props)
-    modalVisible ? setModalVisible(false) : setModalVisible(true)
+    if (modalVisible) {
+      setModalVisible(false)
+      document.body.style.overflow = 'auto'
+    } else {
+      setModalVisible(true)
+      document.body.style.overflow = 'hidden'
+    }
   }
   return (
     <>
@@ -34,10 +41,14 @@ export default function Gif({ props }) {
             <Info>clasificación: {rating}</Info>
             <Link
               href={`/Gif/${id}`}
-              onClick={() => window.scroll({ top: 10 })}
+              onClick={() => {
+                window.scroll({ top: 10 })
+                document.body.style.overflow = 'auto'
+              }}
             >
               <Go>Ver más</Go>
             </Link>
+            <img src={image} />
           </ContentModal>
         </ModalPortalGif>
       )}
