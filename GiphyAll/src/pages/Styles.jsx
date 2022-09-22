@@ -18,23 +18,7 @@ export const LoadingImg = styled.div`
   }
 `
 
-export const Content = styled.div`
-  margin-top: 50px;
-  @media screen and (max-width: 1200px) {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 40px;
-    justify-content: center;
-  }
-  @media screen and (min-width: 1200px) {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-    grid-template-rows: 400px;
-    gap: 40px;
-    grid-auto-flow: row;
-    justify-items: center;
-  }
-`
+export const Content = styled.div``
 export const Button = styled.button`
   cursor: pointer;
   border-radius: 4px;

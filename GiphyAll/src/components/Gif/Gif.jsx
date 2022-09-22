@@ -10,7 +10,6 @@ import {
 } from './styles'
 import { ModalPortalGif } from '../modal/GifModal'
 import { Link } from 'wouter'
-import { useEffect } from 'react'
 export default function Gif({ props }) {
   const { title, import_datetime, rating, id } = props
   const image = props.images.downsized_medium.url

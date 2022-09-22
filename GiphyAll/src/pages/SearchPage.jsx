@@ -3,7 +3,7 @@ import ListOfGifts from '../components/ListOfGifts'
 import useGifs from '../hooks/useGifs'
 import Arrow from '../assets/Arrow'
 import { ModalPortalError } from '../components/modal/ErrorModal'
-import { LoadingImg, Content, Button, Up, MSG } from './Styles'
+import { LoadingImg, Button, Up, MSG } from './Styles'
 
 export default function SearchPage({ params }) {
   const keyword = decodeURIComponent(params.keyword)
@@ -47,9 +47,7 @@ export default function SearchPage({ params }) {
       {loading && <LoadingImg></LoadingImg>}
       <h2 className="SearchElement">{keyword}</h2>
 
-      <Content>
-        <ListOfGifts gifs={gifs}></ListOfGifts>
-      </Content>
+      <ListOfGifts gifs={gifs}></ListOfGifts>
 
       {loadingNextPage && <LoadingImg></LoadingImg>}
 

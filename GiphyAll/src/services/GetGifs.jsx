@@ -1,5 +1,5 @@
 const KEY = '4TXKRpbqXMYo4RrAEbeQmHb7EZAezL3F&q'
-const LIMIT = 7
+const LIMIT = 12
 export default function GetGifs({ keyword, page = 0 }) {
   const apiURL = `https://api.giphy.com/v1/gifs/search?api_key=${KEY}=${keyword}&limit=${LIMIT}&offset=${
     page * LIMIT
