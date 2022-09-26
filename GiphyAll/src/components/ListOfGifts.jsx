@@ -1,4 +1,5 @@
-import React, { useContext, useState, useEffect } from 'react'
+/* eslint-disable multiline-ternary */
+import React, { useContext } from 'react'
 import Gif from './Gif/Gif'
 import { Masonry } from 'masonic'
 import GifContext from '../context/GifContext'
@@ -19,18 +20,21 @@ export default function ListOfGifts() {
   const { gifs } = useContext(GifContext)
   return (
     <>
-      {gifs.length > 0 && (
+      {gifs.length > 0 ? (
         <Container>
           <Maso>
             <Masonry
+              key={gifs[0].id}
               items={gifs}
               columnGutter={10}
               columnWidth={300}
-              overscanBy={4}
+              overscanBy={2}
               render={GifCard}
             />
           </Maso>
         </Container>
+      ) : (
+        ''
       )}
     </>
   )
