@@ -8,6 +8,7 @@ const ContentModal = styled.div`
   backdrop-filter: blur(2px);
   width: 90%;
   height: 80vh;
+  max-width: 700px;
   @media screen and (min-width: 900px) {
     top: 10%;
     left: 0%;
@@ -41,7 +42,7 @@ const ContentModal = styled.div`
 `
 
 const CloseModal = styled.button.attrs((props) => ({
-  onClick: props.onClick,
+  onClick: props.onClick
 }))`
   border: none;
   background-color: transparent;

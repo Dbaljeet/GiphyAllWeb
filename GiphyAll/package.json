@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "vitest",
+    "coverage": "vitest run --coverage"
   },
   "dependencies": {
     "masonic": "^3.7.0",
@@ -16,6 +18,7 @@
     "wouter": "^2.8.0-alpha.2"
   },
   "devDependencies": {
+    "@testing-library/react": "^13.4.0",
     "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",
     "@vitejs/plugin-react": "^2.0.1",
@@ -26,6 +29,8 @@
     "eslint-plugin-n": "^15.2.5",
     "eslint-plugin-promise": "^6.0.1",
     "eslint-plugin-react": "^7.31.7",
-    "vite": "^3.0.7"
+    "happy-dom": "^6.0.4",
+    "vite": "^3.0.7",
+    "vitest": "^0.23.4"
   }
 }

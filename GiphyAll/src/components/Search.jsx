@@ -17,7 +17,7 @@ export default function Search({ refLast, keyword, setKeyword, setWord }) {
       window.scrollTo({
         top: refLast.current.offsetTop + refLast.current.offsetHeight,
         left: 0,
-        behavior: 'smooth',
+        behavior: 'smooth'
       })
     }, 500)
   }
