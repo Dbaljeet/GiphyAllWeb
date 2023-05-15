@@ -16,7 +16,7 @@ const Maso = styled.div`
   box-sizing: border-box;
 `
 const GifCard = ({ data }) => <Gif props={data} />
-export default function ListOfGifts() {
+export default function ListOfGifts({ keyword = '' }) {
   const { gifs } = useContext(GifContext)
   return (
     <>
@@ -24,7 +24,7 @@ export default function ListOfGifts() {
         <Container>
           <Maso>
             <Masonry
-              key={gifs[0].id}
+              key={gifs[0].id + keyword}
               items={gifs}
               columnGutter={10}
               columnWidth={300}

@@ -8,7 +8,7 @@ import { LoadingImg, Button, Up, MSG } from './Styles'
 export default function SearchPage({ params }) {
   const keyword = decodeURIComponent(params.keyword)
   const { loading, gifs, setPage, noData, loadingNextPage } = useGifs({
-    keyword,
+    keyword
   })
   const [visible, setVisible] = useState(false)
   const [visibleModalMoreGif, setVisibleModalMoreGif] = useState(true)
@@ -19,7 +19,7 @@ export default function SearchPage({ params }) {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth',
+      behavior: 'smooth'
     })
   }
 
@@ -47,7 +47,7 @@ export default function SearchPage({ params }) {
       {loading && <LoadingImg></LoadingImg>}
       <h2 className="SearchElement">{keyword}</h2>
 
-      <ListOfGifts gifs={gifs}></ListOfGifts>
+      <ListOfGifts gifs={gifs} keyword={keyword}></ListOfGifts>
 
       {loadingNextPage && <LoadingImg></LoadingImg>}
 

@@ -19,6 +19,7 @@ const useGifs = ({ keyword } = { keyword: null }) => {
         setGifs(gifs)
         setLoading(false)
       })
+      return setGifs([])
     },
     [keyword]
   )
@@ -44,7 +45,7 @@ const useGifs = ({ keyword } = { keyword: null }) => {
     noData,
     setPage,
     loadingNextPage,
-    getGif,
+    getGif
   }
 }
 export default useGifs
