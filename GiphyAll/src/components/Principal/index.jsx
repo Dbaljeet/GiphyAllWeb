@@ -3,6 +3,7 @@ import OldSearch from '../OldSearch'
 import Search from '../Search'
 import { useState, useRef, useContext } from 'react'
 
+import { Link } from 'wouter'
 import styled from 'styled-components'
 import Heart from '../ui/Heart'
 import AuthContext from '../../context/AuthContext'
@@ -46,9 +47,11 @@ const Principal = () => {
         <p>No existen búsquedas anteriores</p>
       )}
       {isLogin && (
-        <Favs title="Ver tus gifs favoritos" href="/favs">
-          <Heart />
-        </Favs>
+        <Link title="Ver tus gifs favoritos" to="/favs">
+          <Favs>
+            <Heart />
+          </Favs>
+        </Link>
       )}
 
       <div ref={refLast}></div>
