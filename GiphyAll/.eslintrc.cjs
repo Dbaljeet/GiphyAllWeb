@@ -17,9 +17,11 @@ module.exports = {
   },
   plugins: ['react'],
   rules: {
-    'space-before-function-paren': ['error', 'never'],
+    'space-before-function-paren': RULES.OFF,
     'react/prop-types': RULES.OFF,
     'react/react-in-jsx-scope': RULES.OFF,
-    'no-unused-vars': RULES.WARN
+    'no-unused-vars': RULES.WARN,
+    'multiline-ternary': RULES.OFF,
+    camelcase: RULES.WARN
   }
 }

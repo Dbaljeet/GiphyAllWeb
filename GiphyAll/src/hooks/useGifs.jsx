@@ -6,6 +6,7 @@ const INITIAL_PAGE = 0
 const useGifs = ({ keyword } = { keyword: null }) => {
   const gifContext = useContext(GifContext)
   const { gifs, setGifs, setGif } = gifContext
+
   const [loading, setLoading] = useState(false)
   const [page, setPage] = useState(INITIAL_PAGE)
   const [loadingNextPage, setLoadingNextPage] = useState(false)
