@@ -82,6 +82,11 @@ export const ButtonFav = styled.button`
   background-color: transparent;
   border: none;
   cursor: pointer;
+  @media (max-width: 500px) {
+    & > svg {
+      opacity: 1;
+    }
+  }
 `
 
 export const Go2 = styled.button`

@@ -24,6 +24,15 @@ const Favs = styled.a`
     border-radius: 20px 0 0 20px;
   }
 `
+const Msg = styled.p`
+  border: 1px solid #fff8;
+  width: 40%;
+  padding: 2%;
+  margin: 50px 0;
+  @media (max-width: 600px) {
+    width: auto;
+  }
+`
 
 const Principal = () => {
   const [keyword, setKeyword] = useState('')
@@ -44,11 +53,18 @@ const Principal = () => {
       {word !== '' && word !== null ? (
         <OldSearch word={word}></OldSearch>
       ) : (
-        <p>No existen búsquedas anteriores</p>
+        <>
+          <p>No existen búsquedas anteriores</p>
+          <Msg>
+            Importante: Si experimentas problemas al iniciar sesión o
+            registrarte, puede deberse a problemas en el servidor. Actualmente,
+            estoy realizando un cambio de servidor
+          </Msg>
+        </>
       )}
       {isLogin && (
-        <Link title="Ver tus gifs favoritos" to="/favs">
-          <Favs>
+        <Link to="/favs">
+          <Favs title="Ver tus gifs favoritos">
             <Heart />
           </Favs>
         </Link>

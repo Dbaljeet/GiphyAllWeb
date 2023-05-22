@@ -1,4 +1,4 @@
-*{
+* {
   font-family: 'PT Sans', sans-serif;
 }
 
@@ -6,30 +6,37 @@
   text-align: center;
 }
 
-html{
+html {
   scroll-behavior: smooth;
 }
 
-h1{
+h1 {
   transition: all 1s;
   font-size: 70px;
   font-family: 'Merriweather', serif;
   margin: 0;
 }
 
-h1:hover{
-  -webkit-box-shadow: 3px 20px 12px 4px rgba(0,0,0,0.21);
-  -moz-box-shadow: 3px 20px 12px 4px rgba(0,0,0,0.21);
-  box-shadow: 3px 20px 12px 4px rgba(0,0,0,0.21);
+h1:hover {
+  -webkit-box-shadow: 3px 20px 12px 4px rgba(0, 0, 0, 0.21);
+  -moz-box-shadow: 3px 20px 12px 4px rgba(0, 0, 0, 0.21);
+  box-shadow: 3px 20px 12px 4px rgba(0, 0, 0, 0.21);
 }
 
-.SearchElement{
+.SearchElement {
   font-family: 'Merriweather', serif;
   text-decoration: 5px underline #fff;
 }
 
 .App-content {
-  background-image: linear-gradient(to right top, #4382e0, #6979ec, #9469ef, #c14fe8, #eb12d5);
+  background-image: linear-gradient(
+    to right top,
+    #4382e0,
+    #6979ec,
+    #9469ef,
+    #c14fe8,
+    #eb12d5
+  );
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -39,18 +46,18 @@ h1:hover{
   color: white;
 }
 
-@media screen and (max-width:500px){
-  .App-content{
-    justify-content: flex-start
+@media screen and (max-width: 500px) {
+  .App-content {
+    justify-content: flex-start;
   }
 }
 
-input{
+input {
   text-align: center;
 }
 
-input:focus{
-  border:none;
+input:focus {
+  border: none;
   outline: none;
   background-color: rgb(172, 172, 172);
 }
@@ -59,20 +66,20 @@ input:focus{
 
 */
 
-form{
+form {
   padding: 20px;
   display: flex;
 }
 
-button{
-  opacity: .8;
+button {
+  opacity: 0.8;
 }
 
-button:hover{
+button:hover {
   opacity: 1;
 }
 
-button>img{
+button > img {
   cursor: pointer;
   width: 20px;
 }

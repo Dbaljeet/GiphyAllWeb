@@ -13,6 +13,7 @@ import {
   ButtonFav,
   Go2
 } from './styles'
+
 import { ModalPortalGif } from '../modal/GifModal'
 
 import { Link } from 'wouter'
