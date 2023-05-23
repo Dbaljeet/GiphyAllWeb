@@ -5,6 +5,8 @@ import GetGif from '../services/GetGif'
 export default function Favorites() {
   const { userGif, setGifs, gifs } = useContext(GifContext)
   const error = useRef(false)
+  const refScroll = useRef(null)
+
   const getGifs = async () => {
     setGifs([])
     try {
@@ -20,6 +22,16 @@ export default function Favorites() {
   }
 
   useEffect(() => {
+    setTimeout(function () {
+      window.scrollTo({
+        top: refScroll.current.offsetTop + refScroll.current.offsetHeight,
+        left: 0,
+        behavior: 'smooth'
+      })
+    }, 500)
+  }, [])
+
+  useEffect(() => {
     getGifs()
   }, [userGif])
 
@@ -27,7 +39,7 @@ export default function Favorites() {
 
   return (
     <>
-      <h1>Tus Gifs</h1>
+      <h1 ref={refScroll}>Tus Gifs</h1>
       {gifs?.length > 0 ? <ListOfGifts keyword="myFavoritesGifs" /> : <></>}
     </>
   )

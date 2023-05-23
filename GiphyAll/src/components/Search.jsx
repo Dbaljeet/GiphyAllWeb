@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import SearchIcon from '../assets/SearchIcon.svg'
 import { useLocation } from 'wouter' //,
+import debounce from 'just-debounce-it'
 export default function Search({ refLast, keyword, setKeyword, setWord }) {
   const [path, pushLocation] = useLocation()
   //para que se ve el cambio en la keyword por cada palabra
   const handleSubmit = (ev) => {
-    ev.preventDefault() //para que no se recargue la pag por apretar enter
+    if (keyword === '') return
+    if (ev) ev.preventDefault()
     setWord(keyword)
     localStorage.getItem('keyword') !== keyword
       ? localStorage.setItem('keyword', keyword)
@@ -22,11 +24,15 @@ export default function Search({ refLast, keyword, setKeyword, setWord }) {
     }, 500)
   }
 
+  useEffect(() => {
+    const x = debounce(() => handleSubmit(), 1500)
+    x()
+    return () => x.cancel()
+  }, [keyword])
+
   const handleChange = (evt) => {
     setKeyword(evt.target.value)
   }
-
-  //el envio de la keyword
 
   return (
     <form onSubmit={handleSubmit}>
