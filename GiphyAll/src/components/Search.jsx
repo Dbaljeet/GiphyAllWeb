@@ -21,7 +21,7 @@ export default function Search({ refLast, keyword, setKeyword, setWord }) {
         left: 0,
         behavior: 'smooth'
       })
-    }, 500)
+    }, 100)
   }
 
   useEffect(() => {

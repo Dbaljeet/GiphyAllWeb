@@ -5,8 +5,22 @@ import { Go, Form, Input, Info2 } from './ui'
 import { Info, ContentModal } from './Gif/styles'
 
 import useUser from '../hooks/useUser'
+import { useForm } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup'
+import { registerSchema } from '../schemas/registerSchema'
+import CustomInput from './ui/CustomInput'
 
 export const Register = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors }
+  } = useForm({
+    defaultValues: { name: '', email: '', password: '' },
+    mode: 'onChange',
+    resolver: yupResolver(registerSchema)
+  })
+
   const { registerUser } = useUser()
 
   const [modalVisible, setModalVisible] = useState(false)
@@ -23,12 +37,10 @@ export const Register = () => {
     }
   }
 
-  const handleSubmit = async (ev) => {
-    ev.preventDefault()
+  const onSubmit = async (data) => {
     try {
       setDisableButton(true)
-      const fields = Object.fromEntries(new window.FormData(ev.target))
-      await registerUser(fields)
+      await registerUser(data)
       setDisableButton(false)
       HandleClick()
     } catch (err) {
@@ -46,13 +58,33 @@ export const Register = () => {
           <ContentModal>
             <Info>Regístrate</Info>
 
-            <Form onSubmit={handleSubmit}>
-              <Input name="name" placeholder="Nombre" />
-              <Input name="email" placeholder="Correo" type="email" />
-              <Input name="password" placeholder="Contraseña" type="password" />
-              <Input
+            <Form onSubmit={handleSubmit(onSubmit)}>
+              <CustomInput
+                errors={errors}
+                register={register}
+                name="name"
+                label="Nombre"
+              />
+              <CustomInput
+                errors={errors}
+                register={register}
+                name="email"
+                label="Correo"
+                type="email"
+              />
+
+              <CustomInput
+                errors={errors}
+                register={register}
+                name="password"
+                label="Contraseña"
+                type="password"
+              />
+              <CustomInput
+                errors={errors}
+                register={register}
                 name="confirmPassword"
-                placeholder="Confirmar contraseña"
+                label="Confirmar contraseña"
                 type="password"
               />
               <Go disabled={disableButton} type="submit">

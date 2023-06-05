@@ -22,7 +22,7 @@ export const Go = styled.button`
   margin-top: 20px;
   width: 90%;
   max-width: 200px;
-  cursor: ${(props) => (props.disabled ? 'wait;' : 'pointer;')};
+  cursor: ${(props) => (props.isLoading ? 'wait;' : 'pointer;')};
 `
 export const Form = styled.form`
   display: flex;
