@@ -1,14 +1,16 @@
 import { useState } from 'react'
 
 import { ModalPortalAuth } from './modal/authModal'
-import { Go, Form, Input, Info2 } from './ui'
-import { Info, ContentModal } from './Gif/styles'
 
 import useUser from '../hooks/useUser'
+
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { registerSchema } from '../schemas/registerSchema'
+
 import CustomInput from './ui/CustomInput'
+import { Go, Form, Info2, Spinner } from './ui'
+import { Info, ContentModal } from './Gif/styles'
 
 export const Register = () => {
   const {
@@ -26,6 +28,7 @@ export const Register = () => {
   const [modalVisible, setModalVisible] = useState(false)
   const [disableButton, setDisableButton] = useState(false)
   const [error, setError] = useState()
+  const [isLoading, setIsLoading] = useState(false)
 
   const HandleClick = () => {
     if (modalVisible) {
@@ -40,10 +43,13 @@ export const Register = () => {
   const onSubmit = async (data) => {
     try {
       setDisableButton(true)
+      setIsLoading(true)
       await registerUser(data)
       setDisableButton(false)
+      setIsLoading(false)
       HandleClick()
     } catch (err) {
+      setIsLoading(false)
       setError(err)
       setDisableButton(false)
       setTimeout(() => setError(), 2000)
@@ -98,6 +104,8 @@ export const Register = () => {
                 }
               </Info2>
             )}
+
+            {isLoading && <Info2>{<Spinner></Spinner>}</Info2>}
           </ContentModal>
         </ModalPortalAuth>
       )}

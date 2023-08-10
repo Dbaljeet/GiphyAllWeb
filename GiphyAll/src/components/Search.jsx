@@ -25,7 +25,7 @@ export default function Search({ refLast, keyword, setKeyword, setWord }) {
   }
 
   useEffect(() => {
-    const x = debounce(() => handleSubmit(), 1500)
+    const x = debounce(() => handleSubmit(), 700)
     x()
     return () => x.cancel()
   }, [keyword])

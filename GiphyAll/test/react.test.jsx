@@ -13,13 +13,16 @@ const props = {
   images: { downsized_medium: { url: '' } }
 }
 
+const conds = [true, () => true]
+const [cond, setCond] = conds
+
 describe('renderizado Gif', () => {
   afterEach(cleanup)
   it('should render', () => {
-    render(<Gif props={props} />)
+    render(<Gif props={props} cond={cond} setCond={setCond} userGif={[]} />)
   })
   it('should render title "title" ', () => {
-    render(<Gif props={props} />)
+    render(<Gif props={props} cond={cond} setCond={setCond} userGif={[]} />)
     screen.getByText('title')
   })
 })

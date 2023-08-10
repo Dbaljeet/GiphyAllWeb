@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+export * from './Spinner'
 
 export const Go = styled.button`
   text-decoration: none;

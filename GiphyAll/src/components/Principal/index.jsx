@@ -56,9 +56,9 @@ const Principal = () => {
         <>
           <p>No existen búsquedas anteriores</p>
           <Msg>
-            Importante: Si experimentas problemas al iniciar sesión o
-            registrarte, puede deberse a problemas en el servidor. Actualmente,
-            estoy realizando un cambio de servidor
+            Importante: Si experimentas que al iniciar sesión o registrarte es
+            lento es porque estoy utilizando un servidor free tier, se desactiva
+            cada cierto tiempo de inactividad
           </Msg>
         </>
       )}
