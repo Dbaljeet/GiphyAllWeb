@@ -14,6 +14,8 @@ import {
   Go2
 } from './styles'
 
+import { toast } from 'sonner'
+
 import { ModalPortalGif } from '../modal/GifModal'
 
 import { Link } from 'wouter'
@@ -24,7 +26,6 @@ export default function Gif({ props, cond, setCond, userGif, setUserGif }) {
   const { title, import_datetime, rating, id } = props
   const image = props.images.downsized_medium.url
   const open = useRef(false)
-  const disabled = useRef(false)
 
   const { setGif } = useContext(GifContext)
   const { isLogin } = useContext(AuthContext)
@@ -41,11 +42,23 @@ export default function Gif({ props, cond, setCond, userGif, setUserGif }) {
     }
   }
   const handleFav = (ev) => {
+    if (ev === undefined) {
+      setUserGif((prev) => prev.concat(id))
+      return
+    }
+
     ev.stopPropagation()
     if (userGif.includes(id)) {
-      setUserGif(userGif.filter((gif) => gif !== id))
+      toast('Gif eliminado de tu lista de favoritos', {
+        action: {
+          label: 'Deshacer',
+          onClick: () => handleFav()
+        }
+      })
+      setUserGif((prev) => prev.filter((gif) => gif !== id))
     } else {
-      setUserGif(userGif.concat(id))
+      toast.success('Gif añadido a tu lista de favoritos')
+      setUserGif((prev) => prev.concat(id))
     }
   }
 
@@ -95,9 +108,7 @@ export default function Gif({ props, cond, setCond, userGif, setUserGif }) {
 
             {isLogin &&
               (cond ? (
-                <Go2 onClick={handleFav} disabled={disabled}>
-                  Eliminar de favoritos
-                </Go2>
+                <Go2 onClick={handleFav}>Eliminar de favoritos</Go2>
               ) : (
                 <Go2 onClick={handleFav}>Agregar a favoritos</Go2>
               ))}

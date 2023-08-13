@@ -10,15 +10,23 @@ import GetUserService from '../services/GetUserService'
 import SaveGifsService from '../services/SaveGifsService'
 
 const useUser = () => {
-  const { setUserGif, userGif } = useContext(GifContext)
+  const { setUserGif } = useContext(GifContext)
   const { setIsLogin } = useContext(AuthContext)
 
   const registerUser = async (fields) => {
     const res = await RegisterService(fields)
-    if (res.error) throw new Error(res.error)
+    const { error } = res
+    if (error) {
+      throw new Error(JSON.stringify(error.keyPattern))
+      /*
+      if (error.keyPattern) {
+        throw new Error(JSON.stringify(error.keyPattern))
+      }
+      throw new Error(`{"${error}":1}`)*/
+    }
     Cookies.set('jwt', res.token, { expires: 1 })
     setIsLogin(true)
-    setUserGif(res.data.gifs)
+    setUserGif([])
     Cookies.set('gifs', [])
   }
 
@@ -41,8 +49,7 @@ const useUser = () => {
   const saveGifs = async (gifs) => {
     const jwt = Cookies.get('jwt')
     if (!jwt) throw new Error('Error inicia sesión')
-    const res = await SaveGifsService({ gifs })
-    //console.log(res)
+    await SaveGifsService({ gifs })
   }
 
   const getUser = async () => {

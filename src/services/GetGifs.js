@@ -1,4 +1,4 @@
-const KEY = '4TXKRpbqXMYo4RrAEbeQmHb7EZAezL3F&q'
+const KEY = import.meta.env.VITE_API_KEY
 const LIMIT = 12
 export default function GetGifs({ keyword, page = 0 }) {
   const apiURL = `https://api.giphy.com/v1/gifs/search?api_key=${KEY}=${keyword}&limit=${LIMIT}&offset=${
@@ -8,7 +8,7 @@ export default function GetGifs({ keyword, page = 0 }) {
     .then((res) => res.json())
     .then((response) => {
       const { data } = response
-      let gifs = data.map((image) => {
+      const gifs = data.map((image) => {
         return image
       })
       return gifs
