@@ -10,13 +10,13 @@
 
 ___
 
-## React
+## React (SPA)
 
 * Uso de hooks, creación de custom hooks, creación de componentes, uso de context, fetch, local storage, cookies, etc.
 * Realiza peticiones a GIPHY y al backend hecho con express. 
 * Test con vitest.
 * just-debounce-it para no realizar muchas peticiones mientras el usuario aún escribe en el input de busqueda de gifs.
-* Utilice wouter para el manejo de las rutas.
+* Utilice wouter para el manejo de las "rutas".
 * masonic para realizar el efecto de Masonry en la lista de gifs.
 * react-hook-form y yup para validar los inputs del usuario y entregar una mejor experiencia.
 * sonner para las alertas de inicio de sesión, registro y al añadir, eliminar gifs.
